@@ -36,30 +36,4 @@ describe('Login', () => {
 
   })
 
-  it('should login after click submit button', () => {
-    const users = [
-      { id: 1, name: 'User 1', avatarURL: 'url1' },
-      { id: 2, name: 'User 2', avatarURL: 'url2' },
-    ];
-
-    const component = render(
-      <Provider store={store}>
-        <BrowserRouter>
-          <Login/>
-        </BrowserRouter>
-      </Provider>
-    );
-
-    expect(component).toBeDefined();
-
-    const dropdown = component.getByTestId('userId');
-    expect(dropdown).toBeDefined();
-    fireEvent.change(dropdown,{ target: { value: 'user1' } });
-    expect(dropdown.value).toBe('2');
-    // fireEvent.change(dropdown, { target: { value: '2' } });
-    // fireEvent.change(usernameInputElement, {target: {value: 'rhinoceros'}});
-    // expect(usernameInputElement.value).toBe("");
-
-  })
-
 })

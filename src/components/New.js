@@ -67,6 +67,7 @@ const New = ({ authUser, questions, users, updateQuestions, updateUsers, history
                   placeholder="Option 1"
                   value={optionOne}
                   onChange={onChangeText1}
+                  data-testid="first-option"
                 />
                 <Divider horizontal>Second Option</Divider>
                 <Input
@@ -75,6 +76,7 @@ const New = ({ authUser, questions, users, updateQuestions, updateUsers, history
                   placeholder="Option 2"
                   value={optionTwo}
                   onChange={onChangeText2}
+                  data-testid="second-option"
                 />
                 <br />
                 <Button primary fluid>

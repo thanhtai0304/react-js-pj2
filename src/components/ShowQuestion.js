@@ -13,21 +13,21 @@ const ShowQuestion = ({ match, questions, authUser, users }) => {
 
   useEffect(() => {
     const questionId = match.params.question_id;
+
+    const getQuestion = (questionId) => {
+      return questions.find((q) => q.id === questionId) || null;
+    };
+
+    const isAnsweredQuestion = (question) => {
+      const user = users.find((user) => user.id === authUser);
+      return user && user.answers[question.id];
+    };
     const question = getQuestion(questionId);
     if (question) {
       const answered = isAnsweredQuestion(question);
       setQuestionState({ question, isAnswered: answered });
     }
   }, [match.params.question_id, questions, users]);
-
-  const isAnsweredQuestion = (question) => {
-    const user = users.find((user) => user.id === authUser);
-    return user && user.answers[question.id];
-  };
-
-  const getQuestion = (questionId) => {
-    return questions.find((q) => q.id === questionId) || null;
-  };
 
   if (!questionState.question) {
     return <NotFound />;

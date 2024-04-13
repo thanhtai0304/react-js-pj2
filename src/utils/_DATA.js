@@ -173,7 +173,6 @@ export function _saveQuestion(question) {
     if (!question?.optionOneText || !question?.optionTwoText || !question?.author) {
       rej("Please provide 2 answers of the question and its author")
     }
-    const authedUser = question.author;
     const formattedQuestion = formatQuestion(question);
 
     setTimeout(() => {
