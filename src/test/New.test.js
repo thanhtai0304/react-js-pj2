@@ -5,9 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import { store } from "../store/configureStore";
 
 describe('New', () => {
-  it('should login after click submit button', () => {
-    
-
+  it('Change value for input', () => {
     const component = render(
       <Provider store={store}>
         <BrowserRouter>

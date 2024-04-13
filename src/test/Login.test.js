@@ -17,7 +17,7 @@ describe('Login', () => {
     expect(renderedComponent).toMatchSnapshot()
   })
 
-  it('should disable on submit button', () => {
+  it('Should disable on submit button', () => {
     const component = render(
       <Provider store={store}>
         <BrowserRouter>

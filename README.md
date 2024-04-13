@@ -21,11 +21,30 @@ cd react-js-pj2
 ```
 npm install
 ```
+or
+```
+yarn
+```
+
 4. Start project
 
 ```
 npm start
 ```
+OR
+```
+yarn start
+```
 
 ## Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+## Unit testing
+1. Execute test
+```
+npm test
+```
+OR
+```
+yarn test
+```
