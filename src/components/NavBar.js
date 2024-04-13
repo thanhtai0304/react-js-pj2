@@ -31,7 +31,7 @@ const NavBar = ({ users, authUser, setAuthUser }) => {
           </Menu.Menu>
         )}
         {authUser && (
-          <Menu.Menu position="right">
+          <Menu.Menu position="right" data-testid="navbar">
             <Menu.Item>
               <Image
                 src={user && user.avatarURL}

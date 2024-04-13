@@ -170,6 +170,9 @@ function formatQuestion({ optionOneText, optionTwoText, author }) {
 
 export function _saveQuestion(question) {
   return new Promise((res, rej) => {
+    if (!question?.optionOneText || !question?.optionTwoText || !question?.author) {
+      rej("Please provide 2 answers of the question and its author")
+    }
     const authedUser = question.author;
     const formattedQuestion = formatQuestion(question);
 
@@ -178,15 +181,6 @@ export function _saveQuestion(question) {
         ...questions,
         [formattedQuestion.id]: formattedQuestion,
       };
-
-      users = {
-        ...users,
-        [authedUser]: {
-          ...users[authedUser],
-          questions: users[authedUser].questions.concat([formattedQuestion.id]),
-        },
-      };
-
       res(formattedQuestion);
     }, 1000);
   });
@@ -194,6 +188,10 @@ export function _saveQuestion(question) {
 
 export function _saveQuestionAnswer({ authedUser, qid, answer }) {
   return new Promise((res, rej) => {
+    if (!authedUser || !qid || !answer) {
+      rej("Please provide the answer, user and question id");
+    }
+
     setTimeout(() => {
       users = {
         ...users,
@@ -201,10 +199,10 @@ export function _saveQuestionAnswer({ authedUser, qid, answer }) {
           ...users[authedUser],
           answers: {
             ...users[authedUser].answers,
-            [qid]: answer,
-          },
-        },
-      };
+            [qid]: answer
+          }
+        }
+      }
 
       questions = {
         ...questions,
@@ -212,12 +210,12 @@ export function _saveQuestionAnswer({ authedUser, qid, answer }) {
           ...questions[qid],
           [answer]: {
             ...questions[qid][answer],
-            votes: questions[qid][answer].votes.concat([authedUser]),
-          },
-        },
-      };
+            votes: questions[qid][answer].votes.concat([authedUser])
+          }
+        }
+      }
 
-      res();
-    }, 500);
-  });
+      res(true)
+    }, 500)
+  })
 }

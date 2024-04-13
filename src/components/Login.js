@@ -36,7 +36,7 @@ const Login = ({ users, setAuthUser, history, location }) => {
             <Header.Content>
               Animal Pools
             </Header.Content>
-            <Header.Subheader>Please sign in to continue</Header.Subheader>
+            <Header.Subheader data-testid="login-heading">Please sign in to continue</Header.Subheader>
           </Header>
           <Grid padded textAlign="center">
             <Grid.Row>
@@ -55,6 +55,7 @@ const Login = ({ users, setAuthUser, history, location }) => {
                     value={userId}
                     required
                     onChange={onChange}
+                    data-testid="userId"
                     options={
                       (users &&
                         users.map((user) => ({
@@ -70,6 +71,7 @@ const Login = ({ users, setAuthUser, history, location }) => {
                     content="Login"
                     primary
                     fluid
+                    data-testid="submit"
                     disabled={disabled}
                   />
                 </Form>
